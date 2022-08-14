@@ -6,6 +6,7 @@ export interface UserModel extends Document {
   email: string;
   passwordSalt: string;
   password: string;
+  active: boolean;
   createdAt: string;
   updatedAt: string;
 }
@@ -17,6 +18,7 @@ const UserSchema = new Schema(
     email: {type: String, unique: true, require: true},
     passwordSalt: {type: String, unique: true, require: true},
     password: {type: String, require: true},
+    active: {type: Boolean},
   },
   {timestamps: true}
 );

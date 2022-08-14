@@ -1,14 +1,15 @@
 import {connect, Mongoose} from 'mongoose';
 import bluebird from 'bluebird';
+import {MONGODB_URL} from '../config/environment';
 
 bluebird.promisifyAll(Mongoose);
 
 async function dbConnect() {
-    try {
-        const connectionResult = await connect(`mongodb+srv://Domenic:dom123@cluster0.cwn2vpd.mongodb.net/?retryWrites=true&w=majority`)    
-    } catch (error) {
-        throw error
-    } 
+  try {
+    const connectionResult = await connect(MONGODB_URL);
+  } catch (error) {
+    throw error;
+  }
 }
 
 /*
@@ -30,4 +31,4 @@ async function dbConnect() {
     .updateOne()
 */
 
-export default dbConnect
+export default dbConnect;

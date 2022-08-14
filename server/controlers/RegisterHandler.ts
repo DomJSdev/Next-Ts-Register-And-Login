@@ -9,13 +9,14 @@ const RegisterHandler = async (req: Request, res: Response) => {
   const {firstName, lastName, email, password} = req.body;
 
   const {hashedPassword, passwordSalt} = generateSaltAndHashPassword(password);
-  
+
   try {
     const result = await userModel.create({
       firstName,
       lastName,
       password: hashedPassword,
       passwordSalt,
+      active: false,
       email,
     });
 

@@ -1,0 +1,49 @@
+[
+  {
+    "_id": "edb2bc9b-38b6-4b9e-a1c2-2b936b586a24",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:5500 ",
+    "url": "http://localhost:5500 ",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-08-14T16:42:33.836Z",
+    "modified": "2022-08-14T16:42:33.855Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b5886365-ecf8-4043-aa82-c35c30fc92e2",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:5500",
+    "url": "http://localhost:5500",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-08-14T16:42:48.136Z",
+    "modified": "2022-08-14T16:42:48.417Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "e25b838c-0a21-48b8-a3d9-4c1b21cfac10",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:5500/api/login",
+    "url": "http://localhost:5500/api/login",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-08-14T16:43:41.296Z",
+    "modified": "2022-08-14T17:49:42.640Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"domenic.buechler@gmx.at\",\n  \"password\": \"stat123\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]

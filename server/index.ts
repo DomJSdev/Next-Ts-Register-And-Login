@@ -1,13 +1,17 @@
 import next from 'next';
-import environment from './config/environment';
+import {
+  SERVER_ALLOWED_ORIGIN,
+  IS_PROD,
+  SERVER_PORT,
+  HOST_NAME,
+} from './config/environment';
 import express from 'express';
 // import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import http from 'http';
 import dbConnect from './utils/mongodbConnect';
 import RegisterHandler from './controlers/RegisterHandler';
-
-const {SERVER_ALLOWED_ORIGIN, IS_PROD, SERVER_PORT, HOST_NAME} = environment;
+import LoginHandler from './controlers/LoginHandler';
 
 const nextApp = next({
   dev: !IS_PROD,
@@ -39,6 +43,7 @@ nextApp.prepare().then(async () => {
   server.use(express.urlencoded({extended: true}));
 
   server.post('/api/register', RegisterHandler);
+  server.post('/api/login', LoginHandler);
 
   server.all('*', (req, res) => {
     return handler(req, res);
