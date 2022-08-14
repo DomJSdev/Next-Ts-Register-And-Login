@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "noEmit": false,
+    "target": "ES2015",
+    "moduleResolution": "node",
+    "outDir": ".next/server"
+  },
+  "include": ["server"]
+}

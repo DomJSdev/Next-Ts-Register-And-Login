@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 
 
-const Home: NextPage = () => {
+const Register: NextPage = () => {
   return (
     <div>
       <h1>Startseite</h1>
@@ -10,4 +10,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Register
