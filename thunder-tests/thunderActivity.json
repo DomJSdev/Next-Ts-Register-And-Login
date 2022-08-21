@@ -36,12 +36,50 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-08-14T16:43:41.296Z",
-    "modified": "2022-08-14T17:49:42.640Z",
+    "modified": "2022-08-21T15:57:01.592Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\": \"domenic.buechler@gmx.at\",\n  \"password\": \"stat123\"\n}",
+      "raw": "{\n  \"email\": \"ali.a@gmx.at\",\n  \"password\": \"ali123\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "ec3713aa-3374-49e8-a5ec-e27caa8d638f",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:5500/api/register",
+    "url": "http://localhost:5500/api/register",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-08-14T16:43:41.296Z",
+    "modified": "2022-08-21T15:53:03.881Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"ali.a@gmx.at\",\n  \"firstName\": \"ali.a@gmx.at\",\n  \"lastName\": \"ali.a@gmx.at\",\n  \"password\": \"ali123\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "fe106908-1e7a-449b-9ca8-1191bd07aff6",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:5500/api/forgot-password",
+    "url": "http://localhost:5500/api/forgot-password",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-08-14T16:43:41.296Z",
+    "modified": "2022-08-21T17:47:42.101Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"ali.a@gmx.at\"\n}",
       "form": []
     },
     "tests": []

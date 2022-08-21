@@ -1,8 +1,8 @@
 import {UserModel} from '../models/userSchema';
-import {sign} from 'jsonwebtoken';
+import {JwtPayload, sign, verify} from 'jsonwebtoken';
 import {readFileSync} from 'fs';
 import {resolve} from 'path';
-import {NEXT_APP_PHRASE_KEY} from '../config/environment';
+import {DOMAIN, NEXT_APP_PHRASE_KEY} from '../config/environment';
 
 /**
  * Generate OpenSSL keys @see https://rietta.com/blog/openssl-generating-rsa-key-from-command/
@@ -28,11 +28,11 @@ const generateJWT = (user: UserModel) => {
         userId: user._id.toString(),
       },
     },
-    {key: PRIVATE_KEY, passphrase: NEXT_APP_PHRASE_KEY},
+    {key: PRIVATE_KEY, passphrase: NEXT_APP_PHRASE_KEY || ''},
     {
       algorithm: 'RS256',
       expiresIn: '20m',
-      issuer: 'localhost',
+      issuer: DOMAIN,
     }
   );
 
@@ -42,11 +42,11 @@ const generateJWT = (user: UserModel) => {
         userId: user._id.toString(),
       },
     },
-    {key: PRIVATE_KEY, passphrase: NEXT_APP_PHRASE_KEY},
+    {key: PRIVATE_KEY, passphrase: NEXT_APP_PHRASE_KEY || ''},
     {
       algorithm: 'RS256',
       expiresIn: '7d',
-      issuer: 'localhost',
+      issuer: DOMAIN,
     }
   );
 
@@ -58,4 +58,28 @@ const generateJWT = (user: UserModel) => {
   };
 };
 
-export default generateJWT;
+const generateForgotPasswordJWT = (user: UserModel) => {
+  return sign(
+    {
+      data: {
+        userId: user._id.toString(),
+      },
+    },
+    {key: PRIVATE_KEY, passphrase: NEXT_APP_PHRASE_KEY || ''},
+    {
+      algorithm: 'RS256',
+      expiresIn: '5m',
+      issuer: DOMAIN,
+    }
+  );
+};
+
+const decodeJWT = (token: string): JwtPayload | Error => {
+  try {
+    return verify(token, PUBLIC_KEY) as JwtPayload;
+  } catch (error) {
+    return error as Error;
+  }
+};
+
+export {generateJWT, decodeJWT, generateForgotPasswordJWT};

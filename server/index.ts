@@ -12,6 +12,8 @@ import http from 'http';
 import dbConnect from './utils/mongodbConnect';
 import RegisterHandler from './controlers/RegisterHandler';
 import LoginHandler from './controlers/LoginHandler';
+import ForgotPasswordHandler from './controlers/ForgotPasswordHandler';
+import ResetPasswordHandler from './controlers/ResetPasswordHandler';
 
 const nextApp = next({
   dev: !IS_PROD,
@@ -44,6 +46,8 @@ nextApp.prepare().then(async () => {
 
   server.post('/api/register', RegisterHandler);
   server.post('/api/login', LoginHandler);
+  server.post('/api/forgot-password', ForgotPasswordHandler);
+  server.post('/api/reset-password', ResetPasswordHandler);
 
   server.all('*', (req, res) => {
     return handler(req, res);

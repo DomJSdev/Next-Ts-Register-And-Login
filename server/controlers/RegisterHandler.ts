@@ -21,6 +21,9 @@ const RegisterHandler = async (req: Request, res: Response) => {
     });
 
     await result.save();
+    console.log(
+      'Please active your account - assuming we have email verification system'
+    );
     res.send('Your user has been created');
   } catch (error) {
     res.status(500).send(error);

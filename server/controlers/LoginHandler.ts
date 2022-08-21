@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 import userModel from '../models/userSchema';
 import isCorrectPassword from '../utils/isCorrectPassword';
-import generateJWT from '../utils/jwt';
+import {generateJWT} from '../utils/jwt';
 
 const LoginHandler = async (req: Request, res: Response) => {
   if (!req.body)
@@ -18,7 +18,7 @@ const LoginHandler = async (req: Request, res: Response) => {
     const user = await userModel.findOne({email, active: true});
 
     if (!user) {
-      res.status(400).send({error: 'Email not found or invalid'});
+      res.status(400).send({error: 'Email not found or invalid or inactive'});
       return;
     }
 
