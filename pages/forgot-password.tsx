@@ -1,5 +1,6 @@
 import React, {FormEvent, useState, useCallback} from 'react';
 import * as axios from 'axios';
+import Headers from '../components/Headers';
 
 const ForgotPassword = () => {
   /**
@@ -29,12 +30,15 @@ const ForgotPassword = () => {
 
   return (
     <>
+    <Headers></Headers>
       <h1>Forgot password</h1>
       <form onSubmit={submitHandler}>
+        <label>Email Adress</label>
         <input
           value={email}
           name="email"
           type="email"
+          placeholder='emailadress'
           onChange={(event) => setEmail(event.target.value)}
         />
         <button type="submit">Reset</button>

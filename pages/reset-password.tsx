@@ -1,6 +1,7 @@
 import React, {FormEvent, useRef, useState, useCallback} from 'react';
 import * as axios from 'axios';
 import {useRouter} from 'next/router';
+import Headers from '../components/Headers';
 
 const ResetPassword = () => {
   const router = useRouter();
@@ -41,6 +42,7 @@ const ResetPassword = () => {
 
   return (
     <>
+    <Headers></Headers>
       <h1>Reset password</h1>
       <form onSubmit={submitHandler}>
         <input

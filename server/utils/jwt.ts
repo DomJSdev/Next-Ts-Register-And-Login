@@ -25,7 +25,7 @@ const generateJWT = (user: UserModel) => {
   const accessToken = sign(
     {
       data: {
-        userId: user._id.toString(),
+        id: user._id.toString(),
       },
     },
     {key: PRIVATE_KEY, passphrase: NEXT_APP_PHRASE_KEY || ''},
@@ -39,7 +39,7 @@ const generateJWT = (user: UserModel) => {
   const refreshToken = sign(
     {
       data: {
-        userId: user._id.toString(),
+        id: user._id.toString(),
       },
     },
     {key: PRIVATE_KEY, passphrase: NEXT_APP_PHRASE_KEY || ''},
@@ -62,7 +62,7 @@ const generateForgotPasswordJWT = (user: UserModel) => {
   return sign(
     {
       data: {
-        userId: user._id.toString(),
+        id: user._id.toString(),
       },
     },
     {key: PRIVATE_KEY, passphrase: NEXT_APP_PHRASE_KEY || ''},

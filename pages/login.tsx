@@ -1,6 +1,8 @@
 import React, {FormEvent, useRef, useState, useCallback} from 'react';
 import * as axios from 'axios';
 import {useRouter} from 'next/router';
+import Headers from '../components/Headers';
+
 
 const Login = () => {
   const router = useRouter();
@@ -46,8 +48,9 @@ const Login = () => {
 
   return (
     <>
+      <Headers></Headers>
       <h1>Login page</h1>
-      <form onSubmit={submitHandler}>
+      <form className='login card' onSubmit={submitHandler}>
         <input
           ref={emailRef}
           value={email}
