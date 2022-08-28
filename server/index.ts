@@ -15,6 +15,7 @@ import LoginHandler from './controlers/LoginHandler';
 import ForgotPasswordHandler from './controlers/ForgotPasswordHandler';
 import ResetPasswordHandler from './controlers/ResetPasswordHandler';
 
+
 const nextApp = next({
   dev: !IS_PROD,
   hostname: HOST_NAME,
@@ -40,6 +41,7 @@ nextApp.prepare().then(async () => {
   //       credentials: true,
   //     })
   //   );
+
   server.use(cookieParser());
   server.use(express.json());
   server.use(express.urlencoded({extended: true}));

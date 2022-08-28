@@ -1,6 +1,7 @@
 import {Request, Response} from 'express';
-import {DOMAIN} from '../config/environment';
+import {DOMAIN, EMAIL_ADRESS} from '../config/environment';
 import userModel from '../models/userSchema';
+import sendEmailToCustomer from '../utils/email';
 import {generateForgotPasswordJWT} from '../utils/jwt';
 
 const ForgotPasswordHandler = async (req: Request, res: Response) => {
@@ -16,6 +17,15 @@ const ForgotPasswordHandler = async (req: Request, res: Response) => {
   }
 
   const jwt = generateForgotPasswordJWT(user);
+
+  console.log(EMAIL_ADRESS);
+
+  sendEmailToCustomer(
+    jwt,
+    'domenic.buechler@gmx.at',
+    'Reset password',
+    `http://localhost:5500/reset-password?token=`
+  );
   console.log(
     'Forgot password url (That can be found in email): ',
     `${DOMAIN}reset-password?token=${jwt}`
