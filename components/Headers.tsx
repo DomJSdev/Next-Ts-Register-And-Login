@@ -1,12 +1,11 @@
-
 const Headers = () => {
   return (
-    <div style={{"color":"white"}}>
-      <a ref={'/'}>Startseite</a>
-      <a ref={'/login'}>Login</a>
-      <a ref={'/register'}>register</a>
-      <a ref={'/forgot-password'}>forgot-password</a>
-      <a ref={'/reset-password'}>reset-password</a>
+    <div style={{color: 'white'}}>
+      <a href={'/'}>Startseite</a>
+      <a href={'/login'}>Login</a>
+      <a href={'/register'}>register</a>
+      <a href={'/forgot-password'}>forgot-password</a>
+      <a href={'/reset-password'}>reset-password</a>
     </div>
   );
 };

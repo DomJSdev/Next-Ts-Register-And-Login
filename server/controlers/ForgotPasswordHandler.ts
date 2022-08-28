@@ -18,8 +18,6 @@ const ForgotPasswordHandler = async (req: Request, res: Response) => {
 
   const jwt = generateForgotPasswordJWT(user);
 
-  console.log(EMAIL_ADRESS);
-
   sendEmailToCustomer(
     jwt,
     'domenic.buechler@gmx.at',

@@ -8,6 +8,10 @@ async function dbConnect() {
   try {
     const connectionResult = await connect(MONGODB_URL);
   } catch (error) {
+    console.log(
+      '🚀 ~ file: mongodbConnect.ts ~ line 11 ~ dbConnect ~ error',
+      error
+    );
     throw error;
   }
 }

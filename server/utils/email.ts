@@ -33,7 +33,6 @@ const sendEmailToCustomer = async (
     <a href=${domain}${token}>Reset</a> 
     </div>`,
   });
-  console.log(sendResult);
 };
 
 export default sendEmailToCustomer;

@@ -1,6 +1,5 @@
 import {loadEnvConfig} from '@next/env';
 loadEnvConfig('./', process.env.NODE_ENV !== 'production');
-console.log(process.env.NODE_ENV !== 'production');
 
 /*
 if I run commando npm run build with IS_PROD = 'test' then it works 
@@ -9,7 +8,6 @@ IS_PROD = process.env.NODE_ENV === 'production';
 error: webpack.js:255:23 Uncaught ReferenceError: R is not defined
 */
 const IS_PROD = 'test'; //process.env.NODE_ENV === 'production';
-console.log(IS_PROD);
 const SERVER_PORT = 5500;
 const HOST_NAME = 'localhost';
 const DOMAIN = IS_PROD

@@ -14,7 +14,8 @@ import RegisterHandler from './controlers/RegisterHandler';
 import LoginHandler from './controlers/LoginHandler';
 import ForgotPasswordHandler from './controlers/ForgotPasswordHandler';
 import ResetPasswordHandler from './controlers/ResetPasswordHandler';
-
+import UserHandler from './controlers/UserHandler';
+import AuthMiddleware from './middleware/AuthMiddleware';
 
 const nextApp = next({
   dev: !IS_PROD,
@@ -50,6 +51,11 @@ nextApp.prepare().then(async () => {
   server.post('/api/login', LoginHandler);
   server.post('/api/forgot-password', ForgotPasswordHandler);
   server.post('/api/reset-password', ResetPasswordHandler);
+
+  server.use(AuthMiddleware());
+
+  // Protected API due to the middleware above (AuthMiddleware).
+  server.get('/api/users', UserHandler);
 
   server.all('*', (req, res) => {
     return handler(req, res);
